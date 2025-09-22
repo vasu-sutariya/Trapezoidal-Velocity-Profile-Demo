@@ -38,17 +38,20 @@ public static class TrajectoryCalculator
         {
             float currentDistance, currentVelocity;
             
+            string phaseType;
             if (t <= accelTime)
             {
                 // Acceleration phase
                 currentVelocity = parameters.acceleration * t;
                 currentDistance = 0.5f * parameters.acceleration * t * t;
+                phaseType = "accel";
             }
             else if (t <= accelTime + constantTime)
             {
                 // Constant velocity phase
                 currentVelocity = parameters.maxVelocity;
                 currentDistance = accelDistance + parameters.maxVelocity * (t - accelTime);
+                phaseType = "constant";
             }
             else {
                 // decel phase
@@ -56,15 +59,16 @@ public static class TrajectoryCalculator
                 currentVelocity = parameters.maxVelocity - parameters.deceleration * decelT;
                 currentDistance = accelDistance + constantDistance + 
                                 parameters.maxVelocity * decelT - 0.5f * parameters.deceleration * decelT * decelT;
+                phaseType = "decel";
             }
             
             Vector3 position = parameters.startPoint + direction * currentDistance;
  
-            trajectory.Add(new TrajectoryPoint(position, currentVelocity, t));
+            trajectory.Add(new TrajectoryPoint(position, currentVelocity, t, phaseType));
         }
         
         // Add the exact final point at total time
-        trajectory.Add(new TrajectoryPoint(parameters.endPoint, 0f, totalTime));
+        trajectory.Add(new TrajectoryPoint(parameters.endPoint, 0f, totalTime, "end"));
         
         return trajectory;
     }

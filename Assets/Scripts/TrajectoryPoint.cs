@@ -13,10 +13,14 @@ public struct TrajectoryPoint
     // Time from trajectory start
     public float time;
     
-    public TrajectoryPoint(Vector3 position, float velocity, float time)
+    // Type of velocity profile phase
+    public string type;
+    
+    public TrajectoryPoint(Vector3 position, float velocity, float time, string type)
     {
         this.position = position;
         this.velocity = velocity;
         this.time = time;
+        this.type = type;
     }
 }
