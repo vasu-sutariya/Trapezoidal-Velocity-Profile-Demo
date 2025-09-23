@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TrajectoryCalculatorTests
 {
-    [TestCase(1f, 10f, 2f, 2f, false, "Triangular profile")]
-    [TestCase(10f, 5f, 2f, 2f, true, "Trapezoidal profile")]
-    
+    [TestCase(1f, 5f, 2f, 2f, false, "Triangular profile")]
+    [TestCase(100f, 5f, 2f, 2f, true, "Trapezoidal profile")]
+
     public void GenerateTrajectory_VelocityProfile_WorksCorrectly(
         float distance, float maxVelocity, float acceleration, float deceleration, 
         bool shouldHaveConstantPhase, string profileType)
