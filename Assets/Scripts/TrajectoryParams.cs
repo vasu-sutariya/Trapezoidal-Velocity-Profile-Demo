@@ -8,9 +8,9 @@ public class TrajectoryParams
     public Vector3 startPoint = Vector3.zero;
     
     // Ending position
-    public Vector3 endPoint = Vector3.forward * 10f;
+    public Vector3 endPoint = Vector3.right * 10f;
     
-    // Maximum velocity during constant phase
+    // Maximum velocity 
     public float maxVelocity = 5f;
     
     // Acceleration during ramp-up phase

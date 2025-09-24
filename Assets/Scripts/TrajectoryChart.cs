@@ -4,7 +4,7 @@ using XCharts.Runtime;
 
 namespace TrajectoryDemo
 {
-    // Visualize trajectory parameters using XCharts
+    // Visualize trajectory parameters in a graph using XCharts
     public class TrajectoryChart : MonoBehaviour
     {
         [Header("Chart References")]
@@ -25,7 +25,7 @@ namespace TrajectoryDemo
             
             
             
-            // Add legend
+            // Add legends
             var legend = chart.EnsureChartComponent<Legend>();
             legend.show = true;
             legend.location.align = Location.Align.TopRight;
@@ -47,7 +47,7 @@ namespace TrajectoryDemo
                     acceleration = trajectorySource.trajectoryParams.acceleration;
                 else if (point.type == "decel")
                     acceleration = -trajectorySource.trajectoryParams.deceleration;
-                
+                Debug.Log("point.time: " + point.time + " point.velocity: " + point.velocity + " acceleration: " + acceleration);
                 chart.AddData(0, point.time, point.velocity);
                 chart.AddData(1, point.time, distance);
                 chart.AddData(2, point.time, acceleration);

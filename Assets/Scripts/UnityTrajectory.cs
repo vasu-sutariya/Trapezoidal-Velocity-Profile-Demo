@@ -15,6 +15,12 @@ public class UnityTrajectory : MonoBehaviour
     private float startTime;
     private bool isAnimating = false;
     
+    // Public properties for testing
+    public List<TrajectoryPoint> Trajectory => trajectory;
+    public int CurrentPointIndex => currentPointIndex;
+    public float StartTime => startTime;
+    public bool IsAnimating => isAnimating;
+    
     void Start()
     {
         if (autoStart)
@@ -27,6 +33,14 @@ public class UnityTrajectory : MonoBehaviour
     public void StartTrajectory()
     {
         trajectory = TrajectoryCalculator.GenerateTrajectory(trajectoryParams);
+        
+        if (trajectory == null || trajectory.Count == 0)
+        {
+            Debug.LogError("UnityTrajectory: trajectory is empty");
+            isAnimating = false;
+            return;
+        }
+        
         currentPointIndex = 0;
         startTime = Time.time;
         isAnimating = true;
@@ -57,7 +71,7 @@ public class UnityTrajectory : MonoBehaviour
             
             // Assign position from trajectory list
             transform.position = trajectory[currentPointIndex].position;
-            Debug.Log(" pos " + currentPointIndex);
+            //Debug.Log(" pos " + currentPointIndex + " type " + trajectory[currentPointIndex].type);
         }
     }
     
