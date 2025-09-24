@@ -1,5 +1,7 @@
 # Trapezoidal Velocity Profile Demo
 
+![Screenshot](Screenshot.png)
+
 A Unity C# project that implements trajactory generation using trapezoidal velocity profile.
 
 ## Overview
@@ -107,6 +109,8 @@ accel_time = max_velocity / acceleration
 decel_time = max_velocity / deceleration
 constant_time = (distance - accel_distance - decel_distance) / max_velocity
 ```
+
+---
 
 ## Experience with Trajactory generation
 
