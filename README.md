@@ -54,7 +54,7 @@ The system automatically determines whether to use a triangular or trapezoidal p
 
 ### Parameters
 
-The trajectory can be configured through the `TrajectoryParams` in the Inspector:
+The trajectory can be configured through the UI Inputs:
 
 - **Start Point**: Initial position (Vector3)
 - **End Point**: Target position (Vector3)
@@ -107,3 +107,25 @@ accel_time = max_velocity / acceleration
 decel_time = max_velocity / deceleration
 constant_time = (distance - accel_distance - decel_distance) / max_velocity
 ```
+
+## Experience with Trajactory generation
+
+This trajectory planning implementation was build upon my previous work with [URalight](https://github.com/vasu-sutariya/Uralight), my inprogress project of All-in-one software for robot motion control. Key features from that experience include:
+
+- [Trapezoidal trajectory algorithms for UR robots in joint space](https://github.com/vasu-sutariya/Uralight/blob/Traj/Assets/Added%20files/ROBOT%20Models/Scripts/UNITY/TrajectoryCalculator.cs#L126)
+- End-effector speed limits and singularity handling
+- Randomized fuzz testing 
+
+That experience helped shape some of the error handling and validation approaches used in this implementation.
+
+### Tutorial Video
+
+Here's a tutorial demonstrating trajectory generation in URalight with UR10 robot:
+
+[![URalight Trajectory Generation Tutorial](https://img.youtube.com/vi/M2Cn9kw-wbA/0.jpg)](https://youtu.be/M2Cn9kw-wbA)
+
+*Click the image above to watch the [URalight trajectory generation tutorial](https://youtu.be/M2Cn9kw-wbA) that covers the usage of this type of motion planning in UR10.*
+
+![Trajectory graphs](Trapazoidal_Trajactory_UR10.png)
+
+

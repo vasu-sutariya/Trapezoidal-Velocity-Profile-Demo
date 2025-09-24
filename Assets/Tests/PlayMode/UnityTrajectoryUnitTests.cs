@@ -55,7 +55,7 @@ public class UnityTrajectoryUnitTests
         yield return null;
     }
 
-   
+    // Update check test has not been written as it would be an integration test
 
     [UnityTest]
     public IEnumerator UnityTrajectory_StopTrajectory_StopsAnimation()
